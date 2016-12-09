@@ -1,5 +1,6 @@
 
 function myFunction(){
+
   var searchButton = document.getElementById('searchButton');
   var resultsContainer = document.getElementById('resultsContainer');
   var keyword;
@@ -19,7 +20,7 @@ function myFunction(){
     var ul = document.createElement('ul');
     ul.className = "list-group";
 
-    for (var i=0; i<=data.length; i++){
+    for (var i=0; i<data.length; i++){
       var li = document.createElement('li');
       var a = document.createElement('a');
       var h1 = document.createElement('h1');
@@ -83,5 +84,5 @@ function myFunction(){
         showResults(response);
       }
     });
-  });  
+  });
 }
