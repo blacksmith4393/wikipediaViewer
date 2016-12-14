@@ -1,16 +1,20 @@
 
 function myFunction(){
-  
+
   var searchButton = document.getElementById('searchButton');
   var resultsContainer = document.getElementById('resultsContainer');
   var keyword;
 
-  function test(string) {
+  function log(string) {
     console.log(string);
   }
 
   function getKeyword() {
     return document.getElementById("searchBox").value;
+  }
+
+  function createUrl(title) {
+    return "http://en.wikipedia.org/wiki/" + title.replace(/ /g, "_");
   }
 
   //Function to create list of search results
@@ -27,7 +31,7 @@ function myFunction(){
       var p = document.createElement('p');
 
       var title = data[i].title;
-      var url = "http://en.wikipedia.org/wiki/" + title.replace(/ /g, "_");
+      var url = createUrl(title);
       var snippet = data[i].snippet +"...";
 
       h2.innerHTML = title;
@@ -39,9 +43,9 @@ function myFunction(){
 
       li.className = "list-group-item";
       li.appendChild(a);
-      //test(li);
+
       ul.appendChild(li);
-      //test(ul);
+
     }
     return ul;
   }
