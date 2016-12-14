@@ -8,9 +8,12 @@ body {
   min-width: 320px;
   margin: 50px auto;
 }
-
 #input-group {
   margin-top: 50%;
+}
+
+.list-group {
+  margin-top: 20px;
 }
 
 .list-group a {

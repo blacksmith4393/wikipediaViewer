@@ -1,6 +1,6 @@
 
 function myFunction(){
-
+  
   var searchButton = document.getElementById('searchButton');
   var resultsContainer = document.getElementById('resultsContainer');
   var keyword;
@@ -20,20 +20,20 @@ function myFunction(){
     var ul = document.createElement('ul');
     ul.className = "list-group";
 
-    for (var i=0; i<data.length; i++){
+    for (var i=0; i < data.length; i++){
       var li = document.createElement('li');
       var a = document.createElement('a');
-      var h1 = document.createElement('h1');
+      var h2 = document.createElement('h2');
       var p = document.createElement('p');
 
       var title = data[i].title;
       var url = "http://en.wikipedia.org/wiki/" + title.replace(/ /g, "_");
       var snippet = data[i].snippet +"...";
 
-      h1.innerHTML = title;
+      h2.innerHTML = title;
       p.innerHTML = snippet;
 
-      a.appendChild(h1);
+      a.appendChild(h2);
       a.appendChild(p);
       a.href = url;
 
@@ -43,18 +43,16 @@ function myFunction(){
       ul.appendChild(li);
       //test(ul);
     }
-    test(ul);
     return ul;
   }
 
   function showResults(res) {
-    test('showResults is running');
     //Remove top margin for search bar
     document.getElementById("input-group").style.margin ="0";
 
     //Store data in variables
     var searchData = res.query.search;
-    test("searchData stored");
+    test(searchData);
     // Create list of results
     var resultsList = createResultsList(searchData);
     test(resultsList);
@@ -65,7 +63,6 @@ function myFunction(){
   searchButton.addEventListener("click", function(event){
     //Clear previous search results
     resultsContainer.innerHTML="";
-
     //Get keyword
     var keyword = getKeyword();
 
@@ -85,4 +82,5 @@ function myFunction(){
       }
     });
   });
+
 }
