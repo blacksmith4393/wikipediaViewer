@@ -22,7 +22,7 @@ gulp.task('less', function () {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function () {
-  return gulp.src('public/css/style.css')
+  return gulp.src('public/css/styles.css')
     .pipe(cleanCSS({
       compatibility: 'ie8'
     }))
@@ -34,14 +34,6 @@ gulp.task('minify-css', ['less'], function () {
       stream: true
     }));
 });
-
-// gulp.task('babel', function () {
-//   return gulp.src('public')
-//     .pipe(babel({
-//       presets: ['es2015']
-//     }))
-//     .pipe(gulp.dest('public'));
-// });
 
 // Minify JS
 gulp.task('minify-js', function () {
