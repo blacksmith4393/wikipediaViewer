@@ -14,7 +14,7 @@ gulp.task('less', function () {
   return gulp.src('less/*.less')
     .pipe(f)
     .pipe(less())
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest('docs'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -22,14 +22,14 @@ gulp.task('less', function () {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function () {
-  return gulp.src('public/css/styles.css')
+  return gulp.src('docs/css/styles.css')
     .pipe(cleanCSS({
       compatibility: 'ie8'
     }))
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest('docs'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -37,7 +37,7 @@ gulp.task('minify-css', ['less'], function () {
 
 // Minify JS
 gulp.task('minify-js', function () {
-  return gulp.src('public/js/index.js')
+  return gulp.src('docs/js/index.js')
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -48,7 +48,7 @@ gulp.task('minify-js', function () {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest('docs'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -61,15 +61,15 @@ gulp.task('default', ['less', 'minify-css', 'minify-js']);
 // Configure the browserSync task
 gulp.task('browserSync', function () {
   browserSync.init({
-    server: 'public'
+    server: 'docs'
   });
 });
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function () {
   gulp.watch('less/*.less', ['less']);
-  gulp.watch('public/css/*.css', ['minify-css']);
-  gulp.watch('public/js/*.js', ['minify-js']);
+  gulp.watch('docs/css/*.css', ['minify-css']);
+  gulp.watch('docs/js/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
   gulp.watch('*.html', browserSync.reload);
 });
