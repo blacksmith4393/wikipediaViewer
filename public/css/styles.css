@@ -1,0 +1,29 @@
+span {
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: 700;
+}
+span.card-title {
+  font-weight: bold;
+}
+
+/* label color */
+.input-field label {
+  color: #ffb74d;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #ffb74d;
+}
+/* label underline focus color */
+.input-field input[type=text] {
+  color: #fff;
+  border-bottom: 1px solid #ffb74d;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #ffb74d;
+  box-shadow: 0 1px 0 0 #ffb74d;
+}
